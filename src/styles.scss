@@ -1,1 +1,37 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url(./assets/styles/_mat-icon.scss);
+@import "./app/directives/tooltip/tooltip.directive.scss";
+
+h1 {
+  font-size: 2rem;
+}
+
+
+button {
+  @apply py-2.5 px-5 me-2 mb-2 text-sm font-medium;
+}
+.button.primary {
+  @apply text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg  text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800;
+}
+
+.button.warn {
+  @apply text-red-900 focus:outline-none bg-white rounded-lg border border-red-200 hover:bg-red-100 hover:text-red-700 focus:z-10 focus:ring-4 focus:ring-gray-100;
+}
+
+.button.secondary {
+  @apply text-blue-900 focus:outline-none bg-white rounded-lg border border-blue-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100;
+}
+
+::-webkit-scrollbar {
+  @apply w-2 h-2;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-500 rounded-md min-h-12;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-200;
+}

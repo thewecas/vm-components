@@ -1,0 +1,82 @@
+:host {
+  // width: min(90vw, 500px);
+  // min-width: 250px;
+  width: clamp(250px, 400px, 90vw)
+}
+
+.input-form {
+  @apply  bg-slate-50 rounded-md flex flex-col gap-8;
+}
+
+.input-wrapper {
+  @apply border-2 border-dashed  border-slate-400 rounded-md  flex flex-col min-h-[30vh] max-h-[45vh] min-w-full p-4 pe-2 gap-2 overflow-y-auto overflow-x-hidden ;
+  scrollbar-gutter: stable;
+  &:has(.singleFile){
+    @apply items-center justify-center;
+  }
+  .placeholder {
+    @apply text-slate-400 flex flex-col items-center gap-2 my-auto;
+  }
+  .mat-icon {
+    @apply text-gray-400;
+  }
+  input {
+    @apply w-0 h-0 absolute;
+  }
+}
+
+.dropBoxhighLight{
+  @apply bg-gray-100
+}
+
+button {
+  @apply flex gap-2 justify-center items-end;
+}
+
+.file {
+  @apply text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm text-center flex items-center relative w-full ;
+  
+  &.singleFile{
+    @apply relative flex-col p-2 w-1/2;
+    .file-icon{
+      @apply select-none;
+      @apply relative;
+      .mat-icon{
+        @apply text-8xl text-blue-300 ;
+      }
+      .extension{
+        @apply absolute top-[50%] left-[50%] translate-x-[-50%]  text-xl text-blue-950
+      }
+    }
+    .filename{
+      @apply text-wrap leading-5
+    }
+    .removeBtn{
+      @apply absolute right-0 top-0;
+    }
+  }
+  .extension{
+    @apply text-blue-700 text-xs px-2 scale-[0.9] pt-0.5 ;
+  }
+  .filename{
+    @apply text-base pt-1 pb-2 leading-3 font-normal text-nowrap text-ellipsis overflow-hidden;
+  }
+  button {
+    @apply inline-flex items-center p-2 ps-1.5 ms-auto my-0 me-0 text-sm text-gray-50 bg-transparent rounded-sm hover:bg-gray-200 hover:text-gray-900 ;
+  }
+
+  
+}
+
+.btn-container{
+  @apply flex gap-2 justify-end;
+  button{
+    @apply h-min
+  }
+}
+
+.dragging{
+  @apply bg-slate-300 border-gray-200 opacity-[0.5];
+}
+
+

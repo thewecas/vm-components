@@ -1,0 +1,33 @@
+
+.tooltip {
+  display: inline-block;
+  font-size: 0.75em;
+  line-height: 1.5;
+  padding: 0.25em 0.75em ;
+  color: white;
+  background-color: rgba(55, 65, 81, 1);
+  border-radius: 0.5em;
+  position: fixed;
+  z-index: 10;
+  transform: translate(-50%,calc(-100% - 0.5em));
+  animation: fade_in 500ms ease-in-out forwards;
+}
+.tooltip::before {
+    content: "";
+    display: block;
+    height: 0.5em;
+    width: 0.5em;
+    background-color: rgba(55, 65, 81, 1);
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+@keyframes fade_in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

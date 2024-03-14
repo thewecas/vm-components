@@ -1,0 +1,29 @@
+*{
+  box-sizing: border-box !important;
+}
+
+.vm-radio {
+  display: flex;
+  gap: 1em;
+  padding-left: 0.5em;
+  font-size: 1rem;
+  // recommneded to change font-size in this declaration only
+}
+.vm-radio input[type="radio"] {
+  appearance: none;
+  width: 0.6em;
+  height: 0.6em;
+  border-radius: 50%;
+  outline-offset: 0.125em;
+  outline: 0.125em solid black;
+  transform: translate(0.25em, 0.5em);
+}
+.vm-radio [type="radio"]:checked {
+  background-color: red;
+  outline-color: red;
+}
+.vm-radio label {
+  font-size: 1em;
+  margin-right: 1em;
+  text-wrap: nowrap;
+}

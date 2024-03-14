@@ -1,0 +1,92 @@
+<form class="input-form" enctype="multipart/form-data" id="uploadForm">
+  <div
+    class="input-wrapper"
+    [class.dropBoxhighLight]="dropBoxhighLight"
+    #wrapper
+    (dragenter)="dropBoxhighLight = true"
+    (mouseleave)="dropBoxhighLight = false"
+    (dragover)="handleDragOver($event, wrapper)"
+    (drop)="handleFileDrop($event)"
+    (click)="input.click()"
+  >
+    <input
+      aria-label="file input"
+      type="file"
+      #input
+      (change)="updateFiles(input.files)"
+    />
+
+    @if(allowMultiple && allowedTotalNoFiles >=2){ @for(file of fileList;track
+    file;){
+    <div
+      class="file draggable"
+      #dragFile
+      (dragstart)="handleDragStart(dragFile)"
+      (dragend)="handleDragEnd(dragFile)"
+      (click)="$event.stopPropagation()"
+      draggable="true"
+    >
+      <p class="extension">{{ file.name | filename : "ext" | uppercase }}</p>
+      <p class="filename">{{ file.name }}</p>
+      <button
+        type="button"
+        aria-label="Remove"
+        (click)="removeFile($event, $index)"
+      >
+        <span class="mat-icon">close</span>
+      </button>
+    </div>
+    }@empty {
+    <ng-container [ngTemplateOutlet]="placeholder"></ng-container>
+    } } @else{ @if(fileList[0]){
+    <div class="file singleFile"  (click)="$event.stopPropagation()">
+      <div class="file-icon">
+        <span class="mat-icon fill">draft</span>
+        <p class="extension">
+          {{ fileList[0].name | filename : "ext" | uppercase }}
+        </p>
+      </div>
+      <p class="filename">{{ fileList[0].name }}</p>
+      <button
+        type="button"
+        aria-label="Remove"
+        class="removeBtn"
+        (click)="removeFile($event, 0)"
+      >
+        <span class="mat-icon">close</span>
+      </button>
+    </div>
+    } @else {
+    <ng-container [ngTemplateOutlet]="placeholder"></ng-container>
+    }}
+  </div>
+  <div class="btn-container">
+    <button type="button" class="button warn" (click)="fileList = []">
+      Clear All
+    </button>
+
+    <button type="button" class="button secondary" (click)="input.click()">
+      Add File
+    </button>
+
+    <button
+      type="submit"
+      class="button primary"
+      (click)="$event.preventDefault()"
+    >
+      Submit
+      <span class="mat-icon">arrow_right_alt</span>
+    </button>
+  </div>
+</form>
+
+<ng-template #placeholder>
+  <div class="placeholder">
+    <span class="mat-icon fill">cloud_upload</span>
+    <span>Drag and drop files here or click </span>
+  </div>
+</ng-template>
+
+<h2>Multiple : {{ allowMultiple }}</h2>
+<h2>FileTypes : {{ allowedFileTypes }}</h2>
+<h2>TotalAllowedFiles : {{ allowedTotalNoFiles }}</h2>

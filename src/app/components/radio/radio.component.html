@@ -1,0 +1,8 @@
+@for (option of optionsList; track $index) {
+  <div class="vm-radio">
+    <input type="radio" [id]="option" [name]="optionName" [value]="option" />
+    <label [for]="option">
+      {{ option }}
+    </label>
+  </div>
+}
