@@ -2,7 +2,7 @@
 
 ## Radio Button
 &#x1F517;[Get complete code here](src/app/components/radio/)   
->**Preview** :  
+**Preview** :  
 <img src="src/assets/images/radio.png" alt="VM Radio" width="200"/>   
  
 **Example** :
@@ -50,7 +50,7 @@ optionName = 'options';
 &#x1F517;[Get complete code here](src/app/directives/tooltip/)  
 > Built with **ng Directive**
 
-> **Preview** :  
+**Preview** :  
 <img src="src/assets/images/tooltip.png" alt="VM Tooltip" width="200"/>   
 
 **Example** :  
